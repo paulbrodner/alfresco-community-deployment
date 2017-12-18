@@ -69,7 +69,7 @@ if [ $# -eq 0 ]; then
 else    
     URL=$1
     echo "Download distribution based on ${URL}"
-    download_distribution
-    
+    wget ${URL} -P ${DISTRIBUTION_DESTINATION}    
+    docker-compose up --build
 fi
 

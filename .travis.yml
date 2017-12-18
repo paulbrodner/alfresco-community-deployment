@@ -12,4 +12,4 @@ before_install:
 - docker --version
 
 script:
-- ls -la
+- ./start.sh https://download.alfresco.com/release/community/201707-build-00028/alfresco-community-distribution-201707.zip

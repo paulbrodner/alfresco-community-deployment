@@ -1,0 +1,35 @@
+version: "2"
+services: 
+  
+  database:          
+     build: 
+      context: ./postgres
+     environment:
+       - POSTGRES_PASSWORD=alfresco
+       - POSTGRES_USER=alfresco
+       - POSTGRES_DB=alfresco      
+     restart: always
+     ports:
+       - 5432:5432
+  
+  alfresco:
+     build:
+       context: ./tomcat
+       dockerfile: Dockerfile
+       args:
+        - COMMUNITY_DISTRIBUTION=${COMMUNITY_DISTRIBUTION}        # distribution/alfresco-community-distribution-201707.zip        
+        - JOLOKIA_WAR=${JOLOKIA_WAR}                              # Jolokia WAR version -> check .env file
+     environment:       
+       - JAVA_OPTS=-Dcom.sun.management.jmxremote
+         -Dcom.sun.management.jmxremote.local.only=false
+         -Dcom.sun.management.jmxremote.authenticate=false
+         -Dcom.sun.management.jmxremote.port=50500
+         -Dcom.sun.management.jmxremote.rmi.port=50500
+         -Dcom.sun.management.jmxremote.ssl=false
+     ports:
+       - 8080:8080    #browser port       
+       - 50500:50500  #RMI port service:jmx:rmi:///jndi/rmi://localhost:50500/jmxrmi
+       - 50508:50508  #monitor port
+       - 1121:1121    #ftp port            
+     depends_on:
+       - database       

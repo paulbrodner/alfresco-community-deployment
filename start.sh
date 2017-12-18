@@ -69,7 +69,10 @@ if [ $# -eq 0 ]; then
 else    
     URL=$1
     echo "Download distribution based on ${URL}"
-    wget ${URL} -P ${DISTRIBUTION_DESTINATION}
+    if [ ! -e $DISTRIBUTION_ZIP_PATH ]; then
+        wget ${URL} -P ${DISTRIBUTION_DESTINATION}
+    fi
+    
     if [ -z "$BACKGROUND" ]; then
         docker-compose up --build
     else        

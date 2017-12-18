@@ -8,7 +8,7 @@
 #
 set -e
 
-DISTRIBUTION_DESTINATION="${2:-./tomcat/distribution1}"  # where should I download the distributions by default
+DISTRIBUTION_DESTINATION="${2:-./tomcat/distribution}"  # where should I download the distributions by default
 COMMUNITY_DISTRIBUTIONS=("https://download.alfresco.com/release/community/201707-build-00028/alfresco-community-distribution-201707.zip")
 
 display_banner()

@@ -53,25 +53,11 @@ $ ./start.sh
 2) Start
 3) Quit
 Choose your option (1-3):
-``````bash
-$ ./start.sh
-
- _____                _     _
- |  __ \              (_)   (_)
- | |__) | __ _____   ___ ___ _  ___  _ __
- |  ___/ '__/ _ \ \ / / / __| |/ _ \| '_ \
- | |   | | | (_) \ V /| \__ \ | (_) | | | |
- |_|   |_|  \___/ \_/ |_|___/_|\___/|_| |_| by paul.brodner@gmail.com
-   ------------------------------------------
-
-1) Download Distributions  
-2) Start
-3) Quit
-Choose your option (1-3):
 ```
 
-* choose first **1** to download the distro
-* run again the script and choose **2** to start the entire solution.
+
+* choose first "**1**" to download the distro
+* run again the script and choose "**2**" to start the entire solution.
 
 ### d) login to Alfresco
 * access `http://localhost:8080/alfresco` for Alfresco Repository

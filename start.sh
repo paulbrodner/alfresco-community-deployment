@@ -69,7 +69,11 @@ if [ $# -eq 0 ]; then
 else    
     URL=$1
     echo "Download distribution based on ${URL}"
-    wget ${URL} -P ${DISTRIBUTION_DESTINATION}    
-    docker-compose up --build
+    wget ${URL} -P ${DISTRIBUTION_DESTINATION}
+    if [ -z "$BACKGROUND" ]; then
+        docker-compose up --build
+    else        
+        echo "docker-compose in background..."
+        docker-compose up -d --build
+    fi        
 fi
-

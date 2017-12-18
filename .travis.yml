@@ -19,5 +19,4 @@ before_install:
 
 script:
 - export BACKGROUND=true && ./start.sh https://download.alfresco.com/release/community/201707-build-00028/alfresco-community-distribution-201707.zip
-- docker-compose ps
 - ./helpers/wait-for-alfresco.to-start.sh

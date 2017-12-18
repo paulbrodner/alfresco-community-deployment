@@ -78,5 +78,6 @@ else
     else        
         echo "docker-compose in background..."
         docker-compose up -d --build
+        docker-compose ps
     fi        
 fi

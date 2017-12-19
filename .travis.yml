@@ -1,12 +1,16 @@
 env:
-  - DOCKER_COMPOSE_VERSION=1.16.1
+  - DOCKER_COMPOSE_VERSION=1.16.1 COMMUNITY_DISTRIBUTION=distribution/alfresco-community-distribution-201707.zip 
 
 language: java
-  
+
 sudo: required
 
 services:
   - docker
+
+stages:
+  - provision
+  - test  
 
 before_install:
 - sudo rm /usr/local/bin/docker-compose
@@ -14,9 +18,11 @@ before_install:
 - chmod +x docker-compose
 - sudo mv docker-compose /usr/local/bin
 - docker-compose version
-- export COMMUNITY_DISTRIBUTION=distribution/alfresco-community-distribution-201707.zip 
 - export JOLOKIA_WAR=http://search.maven.org/remotecontent?filepath=org/jolokia/jolokia-war/1.3.7/jolokia-war-1.3.7.war
-- echo $COMMUNITY_DISTRIBUTION
 
-script:
-- export BACKGROUND=true && ./start.sh https://download.alfresco.com/release/community/201707-build-00028/alfresco-community-distribution-201707.zip
+jobs:
+  include:
+    - stage: provision
+      script: export BACKGROUND=true && ./start.sh ${COMMUNITY_DISTRIBUTION}
+    - stage: test
+      script: ls -la

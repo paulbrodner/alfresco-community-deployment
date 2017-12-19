@@ -18,8 +18,7 @@ RUN mkdir -p ${TMP_DISTRIBUTION_PATH} && \
     mkdir -p /usr/local/tomcat/shared/classes && \
     mkdir -p /usr/local/tomcat/shared/lib && \
     mkdir -p ${BIN_PATH} && \    
-    apk add --no-cache --update openssl ca-certificates unzip && \ 
-    update-ca-certificates 
+    apk add --no-cache --update openssl unzip
     
 # alfresco data used in alfresco-global.properties
 RUN rm -rf /var/data && \

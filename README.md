@@ -5,6 +5,7 @@ Starting my approach of provisioning [Alfresco Community](https://community.alfr
 * with Alfresco Community **Repository**
 * and Alfresco Community **Share UI** on top
 * [Jolokia](https://jolokia.org) WAR Agent - alternative to JSR-160 connectors
+* Alfresco [Rest-API-Explorer](https://github.com/Alfresco/rest-api-explorer)
 * `TBD - SOLR search`
   
 >You will have the possibility to choose between any Alfresco Community distribution zip files - following the [start.sh](start.sh) helper script.
@@ -55,14 +56,13 @@ $ ./start.sh
 Choose your option (1-3):
 ```
 
-
 * choose first "**1**" to download the distro
 * run again the script and choose "**2**" to start the entire solution.
 
 ### d) login to Alfresco
 * access `http://localhost:8080/alfresco` for Alfresco Repository
 * access `http://localhost:8080/share` for Alfresco with Share UI
-
+* access `http://localhost:8080/api-explorer/` for Alfresco Rest API Explorer
 ---
 ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `! Hint` 
 * at any time you can download another Alfresco Community Edition and place it under tomcat/distribution folder

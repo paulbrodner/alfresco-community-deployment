@@ -5,6 +5,7 @@ LABEL maintainer=paul.brodner@gmail.com \
 
 ARG COMMUNITY_DISTRIBUTION
 ARG JOLOKIA_WAR
+ARG API_EXPLORER_WAR
 
 ENV AMPS_REPO_PATH=/usr/local/tomcat/webapps/amps_repo \
     AMPS_SHARE_PATH=/usr/local/tomcat/webapps/share_repo \
@@ -16,15 +17,17 @@ ENV ALFRESCO_MMT_TOOL=${BIN_PATH}/alfresco-mmt.jar
 RUN mkdir -p ${TMP_DISTRIBUTION_PATH} && \
     mkdir -p /usr/local/tomcat/shared/classes && \
     mkdir -p /usr/local/tomcat/shared/lib && \
-    mkdir -p ${BIN_PATH} && \
-    apk add --no-cache --update unzip
-
+    mkdir -p ${BIN_PATH} && \    
+    apk add --no-cache --update openssl ca-certificates unzip && \ 
+    update-ca-certificates 
+    
 # alfresco data used in alfresco-global.properties
 RUN rm -rf /var/data && \
     mkdir -p /var/data && \
     mkdir -p /var/data/alfresco/alf_data && \
     mkdir -p /var/data/alfresco/remote && \
-    wget ${JOLOKIA_WAR} -O /usr/local/tomcat/webapps/jolokia.war 
+    wget ${JOLOKIA_WAR} -O /usr/local/tomcat/webapps/jolokia.war && \
+    wget ${API_EXPLORER_WAR} -O /usr/local/tomcat/webapps/api-explorer.war
 
 # add global-properties
 COPY files/alfresco-global.properties /usr/local/tomcat/shared/classes/alfresco-global.properties

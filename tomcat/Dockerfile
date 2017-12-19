@@ -5,7 +5,7 @@ LABEL maintainer=paul.brodner@gmail.com \
 
 ARG COMMUNITY_DISTRIBUTION
 ARG JOLOKIA_WAR
-ARG API_EXPLORER_WAR
+ARG API_EXPLORER_WAR=distribution/.keepme
 
 ENV AMPS_REPO_PATH=/usr/local/tomcat/webapps/amps_repo \
     AMPS_SHARE_PATH=/usr/local/tomcat/webapps/share_repo \

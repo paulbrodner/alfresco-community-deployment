@@ -69,10 +69,7 @@ if [ $# -eq 0 ]; then
 else    
     URL=$1
     echo "Download distribution based on ${URL}"
-    if [ ! -e $DISTRIBUTION_ZIP_PATH ]; then
-        wget ${URL} -P ${DISTRIBUTION_DESTINATION}
-        
-    fi
+    wget -nc ${URL} -P ${DISTRIBUTION_DESTINATION}
     ls -la ${DISTRIBUTION_DESTINATION}
     
     if [ -z "$BACKGROUND" ]; then

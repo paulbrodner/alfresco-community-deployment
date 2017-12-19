@@ -4,7 +4,9 @@
 # Usage:
 #      $ ./start.sh  (no argument) to follow the instruction
 #      $ ./start.sh https://download.alfresco.com/release/community/201707-build-00028/alfresco-community-distribution-201707.zip
-#      [this will directly provision community/201707-build-00028 - downloading the zip distribution if does not exists]
+#      [ this will directly provision community/201707-build-00028 - downloading the zip distribution if does not exists ]
+#      $ export BACKGROUND=true && ./start.sh https://download.alfresco.com/release/community/201707-build-00028/alfresco-community-distribution-201707.zip
+#      [ provision in baground: i.e. docker-compose up -d ]
 #
 set -e
 

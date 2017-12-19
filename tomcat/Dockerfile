@@ -25,8 +25,8 @@ RUN rm -rf /var/data && \
     mkdir -p /var/data && \
     mkdir -p /var/data/alfresco/alf_data && \
     mkdir -p /var/data/alfresco/remote && \
-    wget ${JOLOKIA_WAR} -O /usr/local/tomcat/webapps/jolokia.war && \
-    wget ${API_EXPLORER_WAR} -O /usr/local/tomcat/webapps/api-explorer.war
+    wget ${JOLOKIA_WAR} -O /usr/local/tomcat/webapps/jolokia.war
+    #wget ${API_EXPLORER_WAR} -O /usr/local/tomcat/webapps/api-explorer.war
 
 # add global-properties
 COPY files/alfresco-global.properties /usr/local/tomcat/shared/classes/alfresco-global.properties

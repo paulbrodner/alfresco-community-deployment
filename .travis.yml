@@ -19,7 +19,7 @@ before_install:
 - sudo mv docker-compose /usr/local/bin
 - docker-compose version
 - export JOLOKIA_WAR=http://search.maven.org/remotecontent?filepath=org/jolokia/jolokia-war/1.3.7/jolokia-war-1.3.7.war
-- export COMMUNITY_DISTRIBUTION=$(basename ${COMMUNITY_DISTRIBUTION_URL})
+- export COMMUNITY_DISTRIBUTION=distribution/$(basename ${COMMUNITY_DISTRIBUTION_URL})
 
 jobs:
   include:

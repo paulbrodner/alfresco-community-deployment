@@ -5,7 +5,7 @@ LABEL maintainer=paul.brodner@gmail.com \
 
 ARG COMMUNITY_DISTRIBUTION
 ARG JOLOKIA_WAR
-ARG API_EXPLORER_WAR=distribution/.keepme
+ARG API_EXPLORER_WAR
 
 ENV AMPS_REPO_PATH=/usr/local/tomcat/webapps/amps_repo \
     AMPS_SHARE_PATH=/usr/local/tomcat/webapps/share_repo \
@@ -25,8 +25,8 @@ RUN rm -rf /var/data && \
     mkdir -p /var/data && \
     mkdir -p /var/data/alfresco/alf_data && \
     mkdir -p /var/data/alfresco/remote && \
-    wget ${JOLOKIA_WAR} -O /usr/local/tomcat/webapps/jolokia.war
-    #wget ${API_EXPLORER_WAR} -O /usr/local/tomcat/webapps/api-explorer.war
+    wget ${JOLOKIA_WAR} -O /usr/local/tomcat/webapps/jolokia.war && \
+    if [ -z "$API_EXPLORER_WAR" ]; then ; else wget ${API_EXPLORER_WAR} -O /usr/local/tomcat/webapps/api-explorer.war; fi
 
 # add global-properties
 COPY files/alfresco-global.properties /usr/local/tomcat/shared/classes/alfresco-global.properties

@@ -12,11 +12,9 @@ before_install:
 - chmod +x docker-compose
 - sudo mv docker-compose /usr/local/bin
 - docker-compose version
-- docker --version
 - export COMMUNITY_DISTRIBUTION=distribution/alfresco-community-distribution-201707.zip 
 - export JOLOKIA_WAR=http://search.maven.org/remotecontent?filepath=org/jolokia/jolokia-war/1.3.7/jolokia-war-1.3.7.war
 - echo $COMMUNITY_DISTRIBUTION
 
 script:
 - export BACKGROUND=true && ./start.sh https://download.alfresco.com/release/community/201707-build-00028/alfresco-community-distribution-201707.zip
-- ./helpers/wait-for-alfresco.to-start.sh

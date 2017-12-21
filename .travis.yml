@@ -19,7 +19,7 @@ before_install:
 - wget ${ALFRESCO_COMMUNITY_VALIDATOR_TESTS} -O alfresco-community-validator-tests.jar
 script: 
 - export BACKGROUND=true && ./start.sh ${COMMUNITY_DISTRIBUTION_URL}
-- ls -la ./helpers
-- ls -la
+- ./helpers/wait-for-alfresco-to-start.sh
+- java -jar alfresco-community-validator-tests.jar
 after_script:
 - docker-compose down

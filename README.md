@@ -1,11 +1,13 @@
 # About [![Build Status](https://travis-ci.org/paulbrodner/alfresco-community-deployment.svg?branch=5.2.N)](https://travis-ci.org/paulbrodner/alfresco-community-deployment)
 
-Starting my approach of provisioning [Alfresco Community](https://community.alfresco.com/docs/DOC-7050-alfresco-community-edition-201707-ga-file-list) using [docker-compose](https://docs.docker.com/compose/) with:
+Starting my approach of provisioning [Alfresco Community](https://community.alfresco.com/docs/DOC-7050-alfresco-community-edition-201707-ga-file-list) in [Travis CI](https://travis-ci.org/paulbrodner/alfresco-community-deployment.svg?branch=5.2.N)using [docker-compose](https://docs.docker.com/compose/)
+
+This solution will give you the posibility to provision:
 * one tomcat container based on [tomcat:8.5.20-jre8-alpine](https://hub.docker.com/r/library/tomcat/tags/)
 * with Alfresco Community **Repository**
 * and Alfresco Community **Share UI** on top
 * [Jolokia](https://jolokia.org) WAR Agent - alternative to JSR-160 connectors
-* Alfresco [Rest-API-Explorer](https://github.com/Alfresco/rest-api-explorer)
+* ~~Alfresco [Rest-API-Explorer](https://github.com/Alfresco/rest-api-explorer)~~
 * `TBD - SOLR search`
   
 You will have the possibility to choose between any Alfresco Community distribution zip files - following the [start.sh](start.sh) helper script.

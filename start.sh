@@ -4,11 +4,13 @@
 # Usage:
 #      $ ./start.sh  (no argument) to follow the instruction
 #      $ ./start.sh https://download.alfresco.com/release/community/201707-build-00028/alfresco-community-distribution-201707.zip
-#      [this will directly provision community/201707-build-00028 - downloading the zip distribution if does not exists]
+#      [ this will directly provision community/201707-build-00028 - downloading the zip distribution if does not exists ]
+#      $ export BACKGROUND=true && ./start.sh https://download.alfresco.com/release/community/201707-build-00028/alfresco-community-distribution-201707.zip
+#      [ provision in baground: i.e. docker-compose up -d ]
 #
 set -e
 
-DISTRIBUTION_DESTINATION="${2:-./tomcat/distribution1}"  # where should I download the distributions by default
+DISTRIBUTION_DESTINATION="${2:-./tomcat/distribution}"  # where should I download the distributions by default
 COMMUNITY_DISTRIBUTIONS=("https://download.alfresco.com/release/community/201707-build-00028/alfresco-community-distribution-201707.zip")
 
 display_banner()
@@ -69,7 +71,14 @@ if [ $# -eq 0 ]; then
 else    
     URL=$1
     echo "Download distribution based on ${URL}"
-    download_distribution
+    wget -nc ${URL} -P ${DISTRIBUTION_DESTINATION}
+    ls -la ${DISTRIBUTION_DESTINATION}
     
+    if [ -z "$BACKGROUND" ]; then
+        docker-compose up --build
+    else        
+        echo "docker-compose in background..."
+        docker-compose up -d --build
+        docker-compose ps
+    fi        
 fi
-

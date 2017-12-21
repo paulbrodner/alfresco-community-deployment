@@ -1,4 +1,4 @@
-# Containers
+# About [![Build Status](https://travis-ci.org/paulbrodner/alfresco-community-deployment.svg?branch=5.2.N)](https://travis-ci.org/paulbrodner/alfresco-community-deployment)
 
 Starting my approach of provisioning [Alfresco Community](https://community.alfresco.com/docs/DOC-7050-alfresco-community-edition-201707-ga-file-list) using [docker-compose](https://docs.docker.com/compose/) with:
 * one tomcat container based on [tomcat:8.5.20-jre8-alpine](https://hub.docker.com/r/library/tomcat/tags/)
@@ -8,10 +8,8 @@ Starting my approach of provisioning [Alfresco Community](https://community.alfr
 * Alfresco [Rest-API-Explorer](https://github.com/Alfresco/rest-api-explorer)
 * `TBD - SOLR search`
   
->You will have the possibility to choose between any Alfresco Community distribution zip files - following the [start.sh](start.sh) helper script.
+You will have the possibility to choose between any Alfresco Community distribution zip files - following the [start.sh](start.sh) helper script.
 
-Help Needed: 
-* email: paul.brodner@gmail.com
 
 ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `! Prerequisites` 
 - [x] [docker](https://docs.docker.com/engine/installation/)
@@ -27,15 +25,17 @@ Help Needed:
 $ git clone https://github.com/paulbrodner/alfresco-community-deployment.git
 ```
 
-> In root folder we have [docker-compose.yml](docker-compose.yml) file that will start Alfresco Community Edition with the distribution zip that you will provide - _see bellow_
+In root folder we have [docker-compose.yml](docker-compose.yml) file that will start Alfresco Community Edition with the distribution zip that you will provide - _see bellow_
 
 ### b) create .env file
 
-Create a new `.env` file in root folder based on `.env.example`
+Create a new `.env` file in root folder based on [.env.example](.env.example)
+
+These variables will be used by [docker-compose.yml](docker-compose.yml) further on.
 
 ### c) run start.sh
 
->in root folder you will find [start.sh](start.sh) - a helper script that will:
+In root folder you will find [start.sh](start.sh) - a helper script that will:
 * download for you the Alfresco Community Edition to [tomcat/distribution](tomcat/distribution)
 * start the docker-compose for you
 
@@ -56,8 +56,9 @@ $ ./start.sh
 Choose your option (1-3):
 ```
 
-* choose first "**1**" to download the distro
-* run again the script and choose "**2**" to start the entire solution.
+> choose first "**1**" to download the distro
+
+> run again the script and choose "**2**" to start the entire solution.
 
 ### d) login to Alfresco
 * access `http://localhost:8080/alfresco` for Alfresco Repository

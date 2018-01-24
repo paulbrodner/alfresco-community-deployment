@@ -1,10 +1,10 @@
 # About [![Build Status](https://travis-ci.org/paulbrodner/alfresco-community-deployment.svg?branch=5.2.N)](https://travis-ci.org/paulbrodner/alfresco-community-deployment)
 
-Starting my approach of provisioning [Alfresco Community](https://community.alfresco.com/docs/DOC-7050-alfresco-community-edition-201707-ga-file-list) in [Travis CI](https://travis-ci.org/paulbrodner/alfresco-community-deployment.svg?branch=5.2.N)using [docker-compose](https://docs.docker.com/compose/)
+Starting my approach of provisioning [Alfresco Community](https://community.alfresco.com/docs/DOC-7050-alfresco-community-edition-201707-ga-file-list) in [Travis CI](https://travis-ci.org/paulbrodner/alfresco-community-deployment.svg?branch=5.2.N) using [docker-compose](https://docs.docker.com/compose/)
 
 This solution will give you the posibility to provision:
 * one tomcat container based on [tomcat:8.5.20-jre8-alpine](https://hub.docker.com/r/library/tomcat/tags/)
-* with Alfresco Community **Repository**
+* with Alfresco Community **Repository** (see [what version](https://github.com/paulbrodner/alfresco-community-deployment/blob/5.2.N/.travis.yml#L2) I am using)
 * and Alfresco Community **Share UI** on top
 * [Jolokia](https://jolokia.org) WAR Agent - alternative to JSR-160 connectors
 * ~~Alfresco [Rest-API-Explorer](https://github.com/Alfresco/rest-api-explorer)~~

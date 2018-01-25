@@ -18,7 +18,7 @@ node('compose-node') {
 	}
 
 	stage('Awaiting Destroy'){
-		input message: 'Click \'Destory\' button to terminate this instance of Alfresco Community Edition', ok: 'Destroy'
+		input message: 'Click \'Destroy\' button to terminate this instance of Alfresco Community Edition', ok: 'Destroy'
 	    	sh 'docker-compose kill'
 	}
 }

@@ -10,6 +10,10 @@ node('compose-node') {
 	stage('Checkout') {
 		git branch: '5.2.N', url: 'https://github.com/paulbrodner/alfresco-community-deployment'      
 	}
+	
+	stage('Cleanup') {
+		sh 'docker-compose rm -fv'
+	}
 
 	stage('Start Alfresco') {
 	    	sh '''export JOLOKIA_WAR=${JOLOKIA_WAR_URL}

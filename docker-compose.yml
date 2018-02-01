@@ -17,8 +17,7 @@ services:
        context: ./tomcat
        dockerfile: Dockerfile
        args:
-        - COMMUNITY_DISTRIBUTION=${COMMUNITY_DISTRIBUTION}        # distribution/alfresco-community-distribution-201707.zip        
-        - JOLOKIA_WAR=${JOLOKIA_WAR}                              # Jolokia WAR version -> check .env file
+        - COMMUNITY_DISTRIBUTION=${COMMUNITY_DISTRIBUTION}        # distribution/alfresco-community-distribution-201707.zip                
         - API_EXPLORER_WAR=${API_EXPLORER_WAR}                    # API_EXPLORER_WAR
      environment:       
        - JAVA_OPTS=-Dcom.sun.management.jmxremote

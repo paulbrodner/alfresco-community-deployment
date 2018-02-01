@@ -6,8 +6,7 @@ This solution will give you the posibility to provision:
 * one tomcat container based on [tomcat:8.5.20-jre8-alpine](https://hub.docker.com/r/library/tomcat/tags/)
 * with Alfresco Community **Repository** (see [what version](https://github.com/paulbrodner/alfresco-community-deployment/blob/5.2.N/.travis.yml#L2) I am using)
 * and Alfresco Community **Share UI** on top
-* [Jolokia](https://jolokia.org) WAR Agent - alternative to JSR-160 connectors
-* ~~Alfresco [Rest-API-Explorer](https://github.com/Alfresco/rest-api-explorer)~~
+* Alfresco [Rest-API-Explorer](https://github.com/Alfresco/rest-api-explorer)
 * `TBD - SOLR search`
   
 You will have the possibility to choose between any Alfresco Community distribution zip files - following the [start.sh](start.sh) helper script.
